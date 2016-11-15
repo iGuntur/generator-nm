@@ -29,9 +29,9 @@ test.serial('generates expected files', async () => {
 		'.gitignore',
 		'.travis.yml',
 		'index.js',
-		'license',
+		'LICENSE',
 		'package.json',
-		'readme.md',
+		'README.md',
 		'test.js'
 	]);
 
@@ -118,7 +118,7 @@ test.serial('prompts for description', async () => {
 	await pify(generator.run.bind(generator))();
 
 	assert.fileContent('package.json', /"description": "foo",/);
-	assert.fileContent('readme.md', /> foo/);
+	assert.fileContent('README.md', /> foo/);
 });
 
 test.serial('defaults to superb description', async () => {
@@ -134,5 +134,5 @@ test.serial('defaults to superb description', async () => {
 	await pify(generator.run.bind(generator))();
 
 	assert.fileContent('package.json', /"description": "My .+ module",/);
-	assert.fileContent('readme.md', /> My .+ module/);
+	assert.fileContent('README.md', /> My .+ module/);
 });
