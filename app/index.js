@@ -89,6 +89,7 @@ module.exports = class extends yeoman.Base {
 				email: this.user.git.email(),
 				website: props.website,
 				humanizedWebsite: humanizeUrl(props.website),
+				currentYear: new Date().getUTCFullYear(),
 				cli,
 				nyc,
 				coveralls
