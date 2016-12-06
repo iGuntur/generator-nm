@@ -5,6 +5,7 @@ const humanizeUrl = require('humanize-url');
 const Generator = require('yeoman-generator');
 const _s = require('underscore.string');
 const binExists = require('bin-exists');
+const del = require('del');
 const moduleName = require('./module-name');
 
 module.exports = class extends Generator {
@@ -123,7 +124,8 @@ module.exports = class extends Generator {
 		this.installDependencies({
 			bower: false,
 			npm: binExists.sync('yarn') === false,
-			yarn: binExists.sync('yarn')
+			yarn: binExists.sync('yarn'),
+			callback: () => del(['.yo-rc.json'])
 		});
 	}
 };

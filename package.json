@@ -33,6 +33,7 @@
   ],
   "dependencies": {
     "bin-exists": "^0.1.2",
+    "del": "^2.2.2",
     "humanize-url": "^1.0.1",
     "normalize-url": "^1.2.0",
     "superb": "^1.1.3",
