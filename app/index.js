@@ -2,11 +2,12 @@
 const superb = require('superb');
 const normalizeUrl = require('normalize-url');
 const humanizeUrl = require('humanize-url');
-const yeoman = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 const _s = require('underscore.string');
+const binExists = require('bin-exists');
 const moduleName = require('./module-name');
 
-module.exports = class extends yeoman.Base {
+module.exports = class extends Generator {
 	constructor(a, b) {
 		super(a, b);
 
@@ -119,6 +120,10 @@ module.exports = class extends yeoman.Base {
 		this.spawnCommandSync('git', ['init']);
 	}
 	install() {
-		this.installDependencies({bower: false});
+		this.installDependencies({
+			bower: false,
+			npm: binExists.sync('yarn') === false,
+			yarn: binExists.sync('yarn')
+		});
 	}
 };
